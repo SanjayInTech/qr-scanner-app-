@@ -1,0 +1,6 @@
+{
+  "appId": "com.aquotech.qrscanner",
+  "appName": "QR Scanner",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}

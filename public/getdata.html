@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Data</title>
+    <link rel="stylesheet" href="E:\qr-scanner-app\public\style.getdata.css">
+    <script src="E:\qr-scanner-app\src\script.getdata.js" defer></script>
+</head>
+<body>
+    <h2>Submit Data</h2>
+
+    <!-- Display QR ID, Box Type, and Operator Name -->
+    <div id="scannedData">
+        <p><strong>QR ID:</strong> <span id="qrIdDisplay">Loading...</span></p>
+        <p><strong>Box Type:</strong> <span id="boxTypeDisplay">Loading...</span></p>
+        <p><strong>Operator:</strong> <span id="operatorDisplay">Loading...</span></p>
+    </div>
+
+    <form id="dataForm" onsubmit="handleSubmit(event)">
+        <!-- Hidden fields populated with QR data -->
+        <input type="hidden" id="qrId" name="qrId">
+        <input type="hidden" id="timestamp" name="timestamp">
+
+        <!-- Error message container -->
+        <div id="error-message" style="color: red; margin-bottom: 10px; display: none;"></div>
+
+        <!-- Dropdown for selecting operation -->
+        <label for="operationSelect">Choose Operation:</label>
+        <select id="operationSelect" onchange="handleOperationSelection()">
+            <option value="" >Select an operation</option>
+        </select>
+
+        <!-- Dynamic Fields Based on Operation -->
+        <div id="dynamicFields"></div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Loading Indicator -->
+    <div id="loading" style="display: none; color: blue; margin-top: 10px;">Processing, please wait...</div>
+
+    <!-- Ensure script runs after page loads -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("Page fully loaded");
+        });
+    </script>
+
+</body>
+</html>

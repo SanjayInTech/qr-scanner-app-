@@ -1,0 +1,91 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Container */
+#main-container {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* QR Scanner Section */
+#qr-scanner-section {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#qr-reader {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+    border-radius: 10px;
+}
+
+/* Scanning Frame Styling */
+#qr-reader canvas {
+    border: 4px dashed rgba(0, 255, 0, 0.6); /* Green scanning frame */
+    border-radius: 8px;
+    animation: scan-animation 1s infinite;
+}
+
+@keyframes scan-animation {
+    0% {
+        border-color: rgba(0, 255, 0, 0.6);
+    }
+    50% {
+        border-color: rgba(0, 255, 0, 1);
+    }
+    100% {
+        border-color: rgba(0, 255, 0, 0.6);
+    }
+}
+
+/* Result Styling */
+#result {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #dc3545; /* Red color for error messages */
+}
+
+/* Stop Scanner Button */
+#stop-scanner-btn {
+    margin-top: 10px;
+    background-color: #dc3545; /* Red color */
+}
+
+#stop-scanner-btn:hover {
+    background-color: #c82333;
+}
