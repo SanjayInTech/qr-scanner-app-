@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code App</title>
+    <!-- Link to custom styles -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- External JS Libraries for QR Code functionalities -->
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- Register Service Worker for Offline Support -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch(err => console.error("Service Worker Registration Failed", err));
+        }
+    </script>
+
+    <!-- Updated JavaScript Path -->
+    <script src="./index.js" defer></script>
+</head>
+
+<body>
+    <div id="root"></div> <!-- React will render here -->
+
+    <div id="main-container">
+        <h1>QR Code App</h1>
+
+        <div class="button-group">
+            <button onclick="showScanner()">Scan QR Code</button>
+            <button onclick="showGenerator()">Generate QR Code</button>
+        </div>
+
+        <!-- QR Code Scanner Section -->
+        <div id="qr-scanner-section" style="display:none;">
+            <h3>QR Code Scanner</h3>
+            <div id="qr-reader" style="width:500px;"></div>
+            <p id="result">Scan a QR code to see the result here.</p>
+            <button onclick="stopScanner()">Stop Scanner</button>
+        </div>
+
+        <!-- QR Code Generator Section -->
+        <div id="qr-generator-section" style="display:none;">
+            <h3>Enter QR ID:</h3>
+            <input type="text" id="qrIdInput" placeholder="Enter QR ID" />
+
+            <h3>Select Box Type:</h3>
+            <select id="boxTypeSelect">
+                <option value="" disabled selected>Select Box Type</option>
+            </select>
+
+            <h3>Select Operator Name:</h3>
+            <select id="operatorNameSelect">
+                <option value="" disabled selected>Select Operator Name</option>
+            </select>
+
+            <button onclick="generateQRCode()">Generate QR Code</button>
+
+            <h3>QR Code:</h3>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+</body>
+
+</html>
